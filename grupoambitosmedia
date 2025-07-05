@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Ámbitos Media S.A de C.V.</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font for the entire page */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Light gray background */
+            color: #333; /* Darker text for readability */
+        }
+        /* General section styling */
+        section {
+            padding: 2rem 1rem;
+            margin-bottom: 1rem;
+            background-color: #ffffff;
+            border-radius: 0; /* Removed rounded corners to make sections square */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Center all text within sections by default */
+        }
+        h1, h2 {
+            color: #1a202c; /* Dark text for headings */
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        ul {
+            list-style: none; /* Remove default bullet points */
+            padding: 0;
+            display: inline-block; /* Allows centering of the ul block itself */
+            text-align: left; /* Align list items text to left within the centered ul */
+        }
+        ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        ul li::before {
+            content: '•'; /* Custom bullet point */
+            color: #003366; /* Darker blue color for bullets */
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1.5em;
+            position: absolute;
+            left: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        .header-bg {
+            background-color: #003366; /* Dark blue header */
+            color: white;
+        }
+        .footer-bg {
+            background-color: #1a202c; /* Dark footer */
+            color: white;
+        }
+
+        /* Carousel specific styles */
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+        .carousel-wrapper {
+            display: flex;
+            overflow-x: scroll; /* Enable horizontal scrolling */
+            scroll-behavior: smooth; /* Smooth scroll effect */
+            -webkit-overflow-scrolling: touch; /* Enable momentum scrolling on iOS */
+            scrollbar-width: none; /* Hide scrollbar for Firefox */
+            -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+        }
+        .carousel-wrapper::-webkit-scrollbar {
+            display: none; /* Hide scrollbar for Chrome, Safari, Opera */
+        }
+        .carousel-wrapper img {
+            flex-shrink: 0; /* Prevent images from shrinking */
+            width: 100%; /* Make each image take full width of the container */
+            max-width: 400px; /* Max width for images in carousel */
+            height: 250px; /* Fixed height for consistency */
+            object-fit: cover; /* Cover the area, cropping if necessary */
+            margin-right: 1rem; /* Space between images */
+            border-radius: 0.5rem; /* Slightly rounded corners for images */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        /* Adjust image width for larger screens to show multiple images */
+        @media (min-width: 640px) {
+            .carousel-wrapper img {
+                width: calc(50% - 0.5rem); /* Two images per row on small screens */
+            }
+        }
+        @media (min-width: 1024px) {
+            .carousel-wrapper img {
+                width: calc(33.333% - 0.66rem); /* Three images per row on large screens */
+            }
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 51, 102, 0.7); /* Dark blue with transparency */
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-size: 1.5rem;
+            z-index: 10;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+        .carousel-button:hover {
+            background-color: rgba(0, 51, 102, 1);
+        }
+        .carousel-button.left {
+            left: 0.5rem;
+        }
+        .carousel-button.right {
+            right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header-bg py-4 shadow-lg">
+        <div class="container flex flex-col items-start">
+            <!-- Company Name / Logo Section -->
+            <div class="w-full flex items-center mb-4">
+                <img src="image.png-9f9ea5ca-1362-4d88-b356-40bc44b8f3dd" alt="Logo de Grupo Ámbitos Media S.A de C.V." class="h-16 w-16 mr-4 object-contain">
+                <h1 class="text-3xl font-extrabold text-white">Grupo Ámbitos Media S.A de C.V.</h1>
+            </div>
+            <!-- Navigation Links Section -->
+            <nav class="w-full">
+                <ul class="flex flex-wrap justify-start gap-4 text-lg">
+                    <li><a href="#nosotros-imagenes" class="hover:text-blue-200 transition duration-300">Nosotros</a></li>
+                    <li><a href="#mision" class="hover:text-blue-200 transition duration-300">Misión</a></li>
+                    <li><a href="#vision" class="hover:text-blue-200 transition duration-300">Visión</a></li>
+                    <li><a href="#politica" class="hover:text-blue-200 transition duration-300">Política de Calidad</a></li>
+                    <li><a href="#reclutamiento" class="hover:text-blue-200 transition duration-300">Reclutamiento</a></li>
+                    <li><a href="#contacto" class="hover:text-blue-200 transition duration-300">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-8">
+
+        <!-- Sección de Imágenes de Nosotros (Carousel) -->
+        <section id="nosotros-imagenes">
+            <h2 class="text-2xl sm:text-3xl">Sobre Nosotros</h2>
+            <p class="text-lg leading-relaxed mb-4">Somos una empresa mexicana líder en soluciones integrales de seguridad privada, comprometidos con la protección y tranquilidad de nuestros clientes. Ofrecemos servicios personalizados y personal altamente capacitado para salvaguardar su patrimonio y garantizar un entorno seguro.</p>
+            <div class="carousel-container">
+                <button class="carousel-button left" onclick="scrollCarousel('nosotros-carousel', -1)">&#10094;</button>
+                <div class="carousel-wrapper" id="nosotros-carousel">
+                    <!-- Images for "About Us" provided by the user -->
+                    <img src="image.png-deae74c5-993d-4ae9-8e8b-779df7cf59e8" alt="Equipo de Seguridad en la entrada">
+                    <img src="image.png-5ccc0dbe-7d76-46ba-ac2b-778d802bd967" alt="Equipo de Seguridad caminando">
+                    <img src="image.png-402affe6-e040-4366-922a-46e98741a253" alt="Entrenamiento de seguridad">
+                    <img src="image.png-9f51afa6-9d23-4588-9f20-f8fdca0926b4" alt="Guardia de seguridad en cuatrimoto">
+                    <img src="image.png-1b482739-b82c-4693-8bef-63ef11a9c721" alt="Grupo de seguridad al aire libre">
+                    <img src="image.png-826b6b6d-a16e-41a5-ae75-8d6bf3fca6f1" alt="Guardias de seguridad de noche">
+                    <img src="image.png-982139a0-f6f9-4b1e-a795-bc0396600df2" alt="Guardias de seguridad en escaleras">
+                    <img src="image.png-d3cf7cef-1a10-4c49-85ae-5146a71436bd" alt="Guardias de seguridad en puerta">
+                    <img src="image.png-3ee7fed8-8973-4473-905f-529e36259d26" alt="Equipo de seguridad en la entrada 2">
+                    <img src="image.png-74a71602-8a52-41d9-85af-d23c58f20a73" alt="Equipo de seguridad caminando 2">
+                </div>
+                <button class="carousel-button right" onclick="scrollCarousel('nosotros-carousel', 1)">&#10095;</button>
+            </div>
+        </section>
+
+        <!-- Sección de Imágenes de Vacantes (Carousel) -->
+        <section id="vacantes-imagenes">
+            <h2 class="text-2xl sm:text-3xl">Nuestras Vacantes</h2>
+            <div class="carousel-container">
+                <button class="carousel-button left" onclick="scrollCarousel('vacantes-carousel', -1)">&#10094;</button>
+                <div class="carousel-wrapper" id="vacantes-carousel">
+                    <!-- Images for vacancies provided by the user -->
+                    <img src="image.png-ef33b791-6a2b-47f0-84a6-c38525293efb" alt="Vacante Guardia de Seguridad">
+                    <img src="image.png-898e7ecd-78b7-42ec-9d40-ce3d343b8826" alt="Vacante Guardia de Seguridad Corporativo">
+                </div>
+                <button class="carousel-button right" onclick="scrollCarousel('vacantes-carousel', 1)">&#10095;</button>
+            </div>
+            <p class="text-lg leading-relaxed mt-6">¡Gracias por tu interés en formar parte de nuestro equipo de seguridad! Te invitamos a revisar nuestras vacantes y aplicar a la que mejor se adapte a tu perfil.</p>
+        </section>
+
+        <!-- Misión Section -->
+        <section id="mision">
+            <h2 class="text-2xl sm:text-3xl">Misión</h2>
+            <p class="text-lg leading-relaxed">Garantizar la seguridad y tranquilidad de nuestros clientes, cubriendo sus necesidades básicas y totales de seguridad.</p>
+        </section>
+
+        <!-- Visión Section -->
+        <section id="vision">
+            <h2 class="text-2xl sm:text-3xl">Visión</h2>
+            <p class="text-lg leading-relaxed">Ser una empresa líder en el ramo de la seguridad integral, brindando a nuestros clientes la excelencia y satisfacción total que se merecen.</p>
+        </section>
+
+        <!-- Política de Calidad Section -->
+        <section id="politica">
+            <h2 class="text-2xl sm:text-3xl">Política de Calidad</h2>
+            <ul class="text-lg leading-relaxed">
+                <li>Nos enfocamos en cubrir las necesidades reales de tu empresa.</li>
+                <li>Brindamos protección con experiencia, validez y compromiso.</li>
+                <li>Nuestro objetivo: garantizar la tranquilidad y resguardo del patrimonio de nuestros clientes.</li>
+            </ul>
+        </section>
+
+        <!-- Reclutamiento y Selección Section -->
+        <section id="reclutamiento">
+            <h2 class="text-2xl sm:text-3xl">Reclutamiento y Selección</h2>
+            <p class="text-lg leading-relaxed mb-4">Nuestro personal cumple con los estrictos filtros:</p>
+            <ul class="text-lg leading-relaxed">
+                <li>Registro ante SSP y CUIP.</li>
+                <li>Entrevistas profundas y visitas domiciliarias.</li>
+                <li>Exámenes médicos, físicos, antidoping.</li>
+                <li>Investigación socio laboral.</li>
+                <li>Documentación completa y válida.</li>
+            </ul>
+        </section>
+
+        <!-- Verificación y Control Interno Section -->
+        <section id="verificacion">
+            <h2 class="text-2xl sm:text-3xl">Verificación y Control Interno</h2>
+            <ul class="text-lg leading-relaxed">
+                <li>Verificación de antecedentes (penales, laborales y personales).</li>
+                <li>Fichas de fotográfico y huellas para control total del personal.</li>
+                <li>Información disponible para clientes ante cualquier incidente.</li>
+            </ul>
+        </section>
+
+        <!-- Capacitación Certificada Section -->
+        <section id="capacitacion">
+            <h2 class="text-2xl sm:text-3xl">Capacitación Certificada</h2>
+            <p class="text-lg leading-relaxed mb-4">Todo nuestro personal recibe:</p>
+            <ul class="text-lg leading-relaxed">
+                <li>Capacitación inicial obligatoria avalada por SSP y STPS.</li>
+                <li>Cursos especializados en situaciones de emergencia y protección.</li>
+                <li>Fortalecimiento de habilidades, según el servicio asignado.</li>
+            </ul>
+        </section>
+
+        <!-- Nuestra Propuesta Section -->
+        <section id="propuesta">
+            <h2 class="text-2xl sm:text-3xl">Nuestra Propuesta Incluye:</h2>
+            <ul class="text-lg leading-relaxed">
+                <li>Estudio de factibilidad y análisis de vulnerabilidad.</li>
+                <li>Plan de cobertura personalizado.</li>
+                <li>Supervisión constante.</li>
+                <li>Capacitación continua al personal.</li>
+                <li>Atención 24 horas de los siete días de la semana vía telefónica, Red móvil y WhatsApp.</li>
+                <li>Póliza de responsabilidad y fianza de fidelidad.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer id="contacto" class="footer-bg py-8 mt-8 shadow-inner">
+        <div class="container text-center">
+            <h2 class="text-2xl font-bold mb-4">Contáctanos</h2>
+            <p class="text-lg mb-2"><strong>Dirección:</strong> Calle Oriente 159 3303, Salvador Díaz Mirón, 07400 Gustavo A. Madero, CDMX, México</p>
+            <p class="text-lg mb-2"><strong>Teléfonos:</strong></p>
+            <p class="text-lg mb-2"><a href="https://wa.me/525616177984?text=Hola,%20me%20interesa%20obtener%20más%20información%20sobre%20sus%20servicios." target="_blank" rel="noopener noreferrer" class="text-white hover:text-blue-200 transition duration-300">+52 56 1617 7984</a></p>
+            <p class="text-lg mb-4"><a href="https://wa.me/525616150790?text=Hola,%20me%20interesa%20obtener%20más%20información%20sobre%20sus%20servicios." target="_blank" rel="noopener noreferrer" class="text-white hover:text-blue-200 transition duration-300">+52 56 1615 0790</a></p>
+
+            <p class="text-lg mb-2"><strong>Correos Electrónicos:</strong></p>
+            <p class="text-lg mb-2 text-white">facturagrupoambitosmedia@gmail.com</p>
+            <p class="text-lg mb-4 text-white">franciscorodriguez@ambitosmedia.com</p>
+
+            <div class="flex justify-center items-center mt-4">
+                <a href="https://www.facebook.com/profile.php?id=100088980373557&mibextid=wwXIfr&mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="text-white hover:text-blue-200 transition duration-300 flex items-center">
+                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V22C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+                    </svg>
+                    Síguenos en Facebook
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function scrollCarousel(carouselId, direction) {
+            const carousel = document.getElementById(carouselId);
+            const scrollAmount = carousel.clientWidth / (window.innerWidth < 640 ? 1 : (window.innerWidth < 1024 ? 2 : 3));
+            carousel.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
+        // Apply touch/swipe functionality to both carousels
+        const carousels = ['nosotros-carousel', 'vacantes-carousel'];
+
+        carousels.forEach(id => {
+            const carousel = document.getElementById(id);
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            carousel.addEventListener('mousedown', (e) => {
+                isDown = true;
+                carousel.classList.add('active');
+                startX = e.pageX - carousel.offsetLeft;
+                scrollLeft = carousel.scrollLeft;
+            });
+            carousel.addEventListener('mouseleave', () => {
+                isDown = false;
+                carousel.classList.remove('active');
+            });
+            carousel.addEventListener('mouseup', () => {
+                isDown = false;
+                carousel.classList.remove('active');
+            });
+            carousel.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - carousel.offsetLeft;
+                const walk = (x - startX) * 1;
+                carousel.scrollLeft = scrollLeft - walk;
+            });
+
+            // Touch events for mobile
+            carousel.addEventListener('touchstart', (e) => {
+                isDown = true;
+                startX = e.touches[0].pageX - carousel.offsetLeft;
+                scrollLeft = carousel.scrollLeft;
+            });
+            carousel.addEventListener('touchend', () => {
+                isDown = false;
+            });
+            carousel.addEventListener('touchmove', (e) => {
+                if (!isDown) return;
+                const x = e.touches[0].pageX - carousel.offsetLeft;
+                const walk = (x - startX) * 1;
+                carousel.scrollLeft = scrollLeft - walk;
+            });
+        });
+    </script>
+</body>
+</html>
